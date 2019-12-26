@@ -1,0 +1,15 @@
+name: PerryMinecraftBut
+version: '0.1.5'
+author: Perry1900
+main: me.perry1900.perryminecraftbut.PerryMinecraftBut
+commands:
+  MinecraftBut:
+    description: Toggle a Minecraft But mode
+    usage: "Usage: /MinecraftBut [mode]"
+    aliases: [butminecraft,but,perryminecraftbut]
+    permission: PerryMinecraftBut.toggle
+    permission-message: You do not have permission to toggle Minecraft But Modes!
+permissions:
+  PerryMinecraftBut.toggle:
+    description: Allows anyone with this permission to toggle Minecraft But modes
+    default: op
