@@ -70,6 +70,7 @@ public class PerryMinecraftBut extends JavaPlugin {
                 player.setMaxHealth(20);
                 player.setHealth(20);
             }
+            getServer().broadcastMessage(ChatColor.GREEN + "The lose health gamemode has been turned off! You will no longer lose health and your health is back to 20!");
             GameModifiers.get("losehealth").cancel();
             GameModifiers.remove("losehealth");
 
@@ -100,12 +101,14 @@ public class PerryMinecraftBut extends JavaPlugin {
                             player.setHealth(20);
                             player.kickPlayer("You ran out of time");
                         }
+                        GameModifiers.remove("losehealth");
+                        this.cancel();
                     }
                 } else {
                     this.cancel();
                 }
             }
-        }.runTaskTimer(this, 1 * 60 * 20, 1 * 60 * 20));
+        }.runTaskTimer(this, 30 * 20, 30 * 20 - 1)); //the -1 is because most private server's tps is going to go down by a little bit and this isn't a plugin for big servers
     }
 
 //    changed because it wouldn't have worked with multiple modes if I kept it

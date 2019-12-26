@@ -14,6 +14,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 public class ModifierGUI implements InventoryHolder, Listener {
     private final Inventory modifiergui;
@@ -30,7 +32,7 @@ public class ModifierGUI implements InventoryHolder, Listener {
     }
 
     public void initializeItems() {
-        modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with 40 hp", "§bbut the max health decreases every minute"));
+        modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with 40 hp", "§bbut the max health decreases every 30 seconds"));
     }
 
     private ItemStack createGuiItem(Material material, String name, String... lore) {
@@ -39,17 +41,16 @@ public class ModifierGUI implements InventoryHolder, Listener {
         meta.setDisplayName(name);
         ArrayList<String> metalore = new ArrayList<String>();
 
-        for (String lorecomments : lore) {
-            metalore.add(lorecomments);
-
-        }
+        metalore.addAll(Arrays.asList(lore));
         meta.setLore(metalore);
         item.setItemMeta(meta);
         return item;
     }
+
     public void openInventory(Player player) {
         player.openInventory(modifiergui);
     }
+
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
 //        System.out.println("test1");
@@ -57,7 +58,7 @@ public class ModifierGUI implements InventoryHolder, Listener {
             System.out.println("not MinecraftBut GUI");
             return;
         }
-        if (e.getClick().equals(ClickType.NUMBER_KEY)){
+        if (e.getClick().equals(ClickType.NUMBER_KEY)) {
 //            System.out.println("test number");
             e.setCancelled(true);
         }
