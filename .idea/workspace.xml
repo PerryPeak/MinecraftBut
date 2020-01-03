@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6a5d154-1397-4191-9d22-20be362caaa8" name="Default Changelist" comment="changed the lose health gamemode to be every 30 seconds instead of 1 minute">
+    <list default="true" id="f6a5d154-1397-4191-9d22-20be362caaa8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Perry_s_Minecraft_But_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Perry_s_Minecraft_But_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/Perry's Minecraft But.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/Perry's Minecraft But.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/META-INF/Minecraft But.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/me/perry1900/perryminecraftbut/GameModifierException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/me/perry1900/perryminecraftbut/MinecraftButCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/me/perry1900/perryminecraftbut/ModifierGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/me/perry1900/perryminecraftbut/PerryMinecraftBut$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minecraft But/me/perry1900/perryminecraftbut/PerryMinecraftBut.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/perry1900/perryminecraftbut/MinecraftButCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/perry1900/perryminecraftbut/MinecraftButCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/perry1900/perryminecraftbut/ModifierGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/perry1900/perryminecraftbut/ModifierGUI.java" afterDir="false" />
@@ -34,7 +30,7 @@
   <component name="ProjectId" id="1UzK9nwSOBiG8acQzEoDwQq8xZ4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config.yml" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,6 +58,14 @@
       <option name="presentableId" value="Default" />
       <updated>1576353835011</updated>
     </task>
+    <task id="LOCAL-00001" summary="changed the lose health gamemode to be every 30 seconds instead of 1 minute">
+      <created>1577387660109</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577387660109</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

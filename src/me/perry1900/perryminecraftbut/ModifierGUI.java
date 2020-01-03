@@ -32,7 +32,7 @@ public class ModifierGUI implements InventoryHolder, Listener {
     }
 
     public void initializeItems() {
-        modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with 40 hp", "§bbut the max health decreases every 30 seconds"));
+        modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with "+ PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.StartingHealth")+ " hp", "§bbut the max health decreases every "+PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.Frequency")+" seconds"));
     }
 
     private ItemStack createGuiItem(Material material, String name, String... lore) {

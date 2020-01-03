@@ -21,7 +21,7 @@ public class MinecraftButCommand implements CommandExecutor {
             }
         }
         if (args[0].equals("losehealth")) {
-            PerryMinecraftBut.instance.getServer().broadcastMessage(ChatColor.DARK_RED + "The max amount of health has been increased but beware: it will now go down by 1 every 30 seconds!");
+            PerryMinecraftBut.instance.getServer().broadcastMessage(ChatColor.DARK_RED + "The max amount of health has been increased but beware: it will now go down by 1 every "+PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.Frequency")+" seconds!");
             PerryMinecraftBut.instance.loseHealthToggle();
             return true;
         }

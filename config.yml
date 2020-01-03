@@ -1,0 +1,5 @@
+LoseHealth:
+  # 1 health = half a heart
+  StartingHealth: 40
+  # frequency is in seconds
+  Frequency: 30

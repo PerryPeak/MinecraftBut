@@ -30,6 +30,7 @@ public class PerryMinecraftBut extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Enabling Perry's Minecraft But");
+        saveDefaultConfig();
         instance = JavaPlugin.getPlugin(PerryMinecraftBut.class);
         getServer().getPluginCommand("MinecraftBut").setExecutor(new MinecraftButCommand());
         getServer().getPluginManager().registerEvents(new ModifierGUI(), this);
@@ -61,10 +62,10 @@ public class PerryMinecraftBut extends JavaPlugin {
         if (GameModifiers.get("losehealth") == null) {
             reduceHealth();
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                player.setMaxHealth(40);
-                player.setHealth(40);
+                player.setMaxHealth(getConfig().getInt("LoseHealth.StartingHealth"));
+                player.setHealth(getConfig().getInt("LoseHealth.StartingHealth"));
             }
-            maxhealth = 39;
+            maxhealth = getConfig().getInt("LoseHealth.StartingHealth")-1;
         } else {
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                 player.setMaxHealth(20);
@@ -108,7 +109,7 @@ public class PerryMinecraftBut extends JavaPlugin {
                     this.cancel();
                 }
             }
-        }.runTaskTimer(this, 30 * 20, 30 * 20 - 1)); //the -1 is because most private server's tps is going to go down by a little bit and this isn't a plugin for big servers
+        }.runTaskTimer(this, getConfig().getInt("LoseHealth.Frequency") * 20, getConfig().getInt("LoseHealth.Frequency") * 20 - 1)); //the -1 is because most private server's tps is going to go down by a little bit and this isn't a plugin for big servers
     }
 
 //    changed because it wouldn't have worked with multiple modes if I kept it
