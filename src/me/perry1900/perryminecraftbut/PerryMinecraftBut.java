@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class PerryMinecraftBut extends JavaPlugin {
     //private boolean losehealth;
     //HashMap<String, Boolean> GameModifiers = new HashMap<String, Boolean>();
-    HashMap<String, BukkitTask> GameModifiers = new HashMap<String, BukkitTask>();
+    HashMap<String, Object> GameModifiers = new HashMap<String, Object>();
     //static PerryMinecraftBut maininstance=this;
     public static PerryMinecraftBut instance;
     private int maxhealth;
@@ -34,6 +34,7 @@ public class PerryMinecraftBut extends JavaPlugin {
         instance = JavaPlugin.getPlugin(PerryMinecraftBut.class);
         getServer().getPluginCommand("MinecraftBut").setExecutor(new MinecraftButCommand());
         getServer().getPluginManager().registerEvents(new ModifierGUI(), this);
+        getServer().getPluginManager().registerEvents(new Events(), this);
     }
 
     @Override
@@ -65,18 +66,37 @@ public class PerryMinecraftBut extends JavaPlugin {
                 player.setMaxHealth(getConfig().getInt("LoseHealth.StartingHealth"));
                 player.setHealth(getConfig().getInt("LoseHealth.StartingHealth"));
             }
-            maxhealth = getConfig().getInt("LoseHealth.StartingHealth")-1;
+            maxhealth = getConfig().getInt("LoseHealth.StartingHealth") - 1;
         } else {
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                 player.setMaxHealth(20);
                 player.setHealth(20);
             }
             getServer().broadcastMessage(ChatColor.GREEN + "The lose health gamemode has been turned off! You will no longer lose health and your health is back to 20!");
-            GameModifiers.get("losehealth").cancel();
+            BukkitTask loseHealthTask = (BukkitTask) GameModifiers.get("losehealth");
+            loseHealthTask.cancel();
             GameModifiers.remove("losehealth");
 
         }
 
+    }
+
+    public void alwaysHungryToggle() {
+        if (GameModifiers.get("alwayshungry") == null) {
+            GameModifiers.put("alwayshungry", true);
+            if (GameModifiers.get("losehealth") == null) {
+                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                    player.setFoodLevel(0);
+                }
+                PerryMinecraftBut.instance.getServer().broadcastMessage(ChatColor.DARK_RED + "Everyone on the server is now constantly hungry");
+            }
+        } else {
+            GameModifiers.remove("alwayshungry");
+            for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                player.setFoodLevel(20);
+            }
+            PerryMinecraftBut.instance.getServer().broadcastMessage(ChatColor.GREEN+"Everyone is not longer hungry and hunger level is back to 20");
+        }
     }
 
     public void reduceHealth() {

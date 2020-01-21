@@ -33,6 +33,7 @@ public class ModifierGUI implements InventoryHolder, Listener {
 
     public void initializeItems() {
         modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with "+ PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.StartingHealth")+ " hp", "§bbut the max health decreases every "+PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.Frequency")+" seconds"));
+        modifiergui.addItem(createGuiItem(Material.ROTTEN_FLESH, "Always Hungry", "§aMakes everyone on the server constantly hungry"));
     }
 
     private ItemStack createGuiItem(Material material, String name, String... lore) {
@@ -72,10 +73,15 @@ public class ModifierGUI implements InventoryHolder, Listener {
 //            System.out.println("air/null");
             return;
         }
-
-        if (e.getRawSlot() == 0) {
+        if(e.getCurrentItem().getItemMeta().getDisplayName().equals("Lose Health")) {
+        //if (e.getRawSlot() == 0) {
 //            System.out.println("test2");
             player.chat("/minecraftbut losehealth");
+        }
+        if(e.getCurrentItem().getItemMeta().getDisplayName().equals("Always Hungry")) {
+            //if (e.getRawSlot() == 0) {
+//            System.out.println("test2");
+            player.chat("/minecraftbut alwayshungery");
         }
     }
 

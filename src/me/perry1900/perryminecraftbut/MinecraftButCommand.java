@@ -25,6 +25,10 @@ public class MinecraftButCommand implements CommandExecutor {
             PerryMinecraftBut.instance.loseHealthToggle();
             return true;
         }
+        else if (args[0].equals("alwayshungery")) {
+            PerryMinecraftBut.instance.alwaysHungryToggle();
+            return true;
+        }
         return false;
     }
 }
