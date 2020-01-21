@@ -56,7 +56,6 @@ public class ModifierGUI implements InventoryHolder, Listener {
     public void onInventoryClick(InventoryClickEvent e) {
 //        System.out.println("test1");
         if (e.getInventory().getHolder() != null) {
-            System.out.println("not MinecraftBut GUI");
             return;
         }
         if (e.getClick().equals(ClickType.NUMBER_KEY)) {
