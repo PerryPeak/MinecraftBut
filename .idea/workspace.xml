@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6a5d154-1397-4191-9d22-20be362caaa8" name="Default Changelist" comment="" />
+    <list default="true" id="f6a5d154-1397-4191-9d22-20be362caaa8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579635656250</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed a debug message that was printed to the console">
+      <created>1579636013162</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579636013162</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +104,7 @@
     <MESSAGE value="changed the lose health gamemode to be every 30 seconds instead of 1 minute" />
     <MESSAGE value="Added config.yml" />
     <MESSAGE value="Added a new gamemode called &quot;always hungry&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new gamemode called &quot;always hungry&quot;" />
+    <MESSAGE value="removed a debug message that was printed to the console" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed a debug message that was printed to the console" />
   </component>
 </project>
