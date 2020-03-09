@@ -31,7 +31,7 @@ public class ModifierGUI implements InventoryHolder, Listener {
         return modifiergui;
     }
 
-    public void initializeItems() {
+    private void initializeItems() {
         modifiergui.addItem(createGuiItem(Material.REDSTONE, "Lose Health", "§aEveryone on the server starts with "+ PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.StartingHealth")+ " hp", "§bbut the max health decreases every "+PerryMinecraftBut.instance.getConfig().getInt("LoseHealth.Frequency")+" seconds"));
         modifiergui.addItem(createGuiItem(Material.ROTTEN_FLESH, "Always Hungry", "§aMakes everyone on the server constantly hungry"));
     }
@@ -54,12 +54,10 @@ public class ModifierGUI implements InventoryHolder, Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
-//        System.out.println("test1");
         if (e.getInventory().getHolder() != null) {
             return;
         }
         if (e.getClick().equals(ClickType.NUMBER_KEY)) {
-//            System.out.println("test number");
             e.setCancelled(true);
         }
         e.setCancelled(true);
@@ -67,19 +65,13 @@ public class ModifierGUI implements InventoryHolder, Listener {
         Player player = (Player) e.getWhoClicked();
         ItemStack clickedItem = e.getCurrentItem();
 
-        // verify current item is not null
         if (clickedItem == null || clickedItem.getType() == Material.AIR) {
-//            System.out.println("air/null");
             return;
         }
         if(e.getCurrentItem().getItemMeta().getDisplayName().equals("Lose Health")) {
-        //if (e.getRawSlot() == 0) {
-//            System.out.println("test2");
             player.chat("/minecraftbut losehealth");
         }
         if(e.getCurrentItem().getItemMeta().getDisplayName().equals("Always Hungry")) {
-            //if (e.getRawSlot() == 0) {
-//            System.out.println("test2");
             player.chat("/minecraftbut alwayshungery");
         }
     }

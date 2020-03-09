@@ -19,10 +19,7 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.HashMap;
 
 public class PerryMinecraftBut extends JavaPlugin {
-    //private boolean losehealth;
-    //HashMap<String, Boolean> GameModifiers = new HashMap<String, Boolean>();
     HashMap<String, Object> GameModifiers = new HashMap<String, Object>();
-    //static PerryMinecraftBut maininstance=this;
     public static PerryMinecraftBut instance;
     private int maxhealth;
 
@@ -43,23 +40,7 @@ public class PerryMinecraftBut extends JavaPlugin {
         instance = null;
     }
 
-    //    public boolean getGameModifier(String modifiername) throws GameModifierException {
-//        Boolean gamemodifier = GameModifiers.get(modifiername);
-//        if (gamemodifier != null) {
-//            return gamemodifier;
-//        } else throw new GameModifierException("Invalid game modifier!");
-//    }
-//
-//    public int getMaxhealth() {
-//        return maxhealth;
-//    }
-//
-//    public void setMaxhealth(int newmaxhealth) {
-//        maxhealth = newmaxhealth;
-//    }
     public void loseHealthToggle() {
-//        if(GameModifiers.get("losehealth")!=true) {
-//            GameModifiers.put("losehealth", true);
         if (GameModifiers.get("losehealth") == null) {
             reduceHealth();
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
@@ -99,20 +80,14 @@ public class PerryMinecraftBut extends JavaPlugin {
         }
     }
 
-    public void reduceHealth() {
+    private void reduceHealth() {
         GameModifiers.put("losehealth", new BukkitRunnable() {
             @Override
             public void run() {
                 if (GameModifiers.get("losehealth") != null) {
-//                    int amplifier=(maxhealth-20)/4;
-//                    maxhealth=maxhealth-4;
                     if (maxhealth >= 1) {
                         getServer().broadcastMessage(ChatColor.DARK_RED + "The maximum amount of health has been reduced to " + maxhealth);
                         for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-//                        double playerhealth=player.getHealth();
-//                        player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
-//                        player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,60*20,amplifier,false,false));
-//                        player.setHealth(playerhealth);
                             player.setMaxHealth(maxhealth);
                         }
                         maxhealth = maxhealth - 1;
@@ -132,40 +107,4 @@ public class PerryMinecraftBut extends JavaPlugin {
         }.runTaskTimer(this, getConfig().getInt("LoseHealth.Frequency") * 20, getConfig().getInt("LoseHealth.Frequency") * 20 - 1)); //the -1 is because most private server's tps is going to go down by a little bit and this isn't a plugin for big servers
     }
 
-//    changed because it wouldn't have worked with multiple modes if I kept it
-
-//    public void everyMinute() {
-//        new BukkitRunnable() {
-//            @Override
-//            public void run() {
-//                if (GameModifiers.get("losehealth")) {
-//                    getServer().broadcastMessage(ChatColor.DARK_RED + "The maximum amount of health has been reduced to " + maxhealth);
-////                    int amplifier=(maxhealth-20)/4;
-////                    maxhealth=maxhealth-4;
-//                    if(maxhealth>1) {
-//                        for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-////                        double playerhealth=player.getHealth();
-////                        player.removePotionEffect(PotionEffectType.HEALTH_BOOST);
-////                        player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,60*20,amplifier,false,false));
-////                        player.setHealth(playerhealth);
-//                            player.setMaxHealth(maxhealth);
-//                        }
-//                        maxhealth = maxhealth - 1;
-//                    }
-//                    else {
-//                        for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-//                            player.kickPlayer("You ran out of time, nerd");
-//                        }
-//                    }
-//                }
-//                else {
-//                    this.cancel();
-//                }
-//            }
-//        }.runTaskTimer(this, 1 * 60 * 20, 1 * 60 * 20);
-//    }
-
-//    public HashMap<String, Boolean> getGameModifiers() {
-//        return GameModifiers;
-//    }
 }
