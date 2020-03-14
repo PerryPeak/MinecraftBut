@@ -1,2 +1,2 @@
-Changed how the "Lose Health" gamemode's BukkitTask object is stored to make adding more gamemodes easier
-Added a gamemode that makes you constantly hungry
+optimized the code/fixed some bad habits
+fixed bugs
